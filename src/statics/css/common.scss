@@ -1,0 +1,51 @@
+html,body, h1,h2,h3,h4,h5,h6,p,ul,li,table,tr,td,th,img{margin:0; padding: 0}
+a{text-decoration: none}
+
+//清除浮动
+.clear:after{
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+.clear{
+  zoom: 1
+}
+
+.fl{
+  float: left
+}
+
+.fr{
+  float: right
+}
+
+.wrap{
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.icon-img{
+  display: inline-block;
+}
+
+.input-item{
+  font-size: 14px;
+  line-height: 30px;
+  .input-title{
+    display: inline-block;
+    color: #666;
+  }
+}
+
+.page-float-left{
+  width: 910px;
+  margin-right: 20px;
+  padding: 20px;
+  background: #fff;
+}
+
+.page-float-right{
+  width: 230px;
+  background: #fff;
+}

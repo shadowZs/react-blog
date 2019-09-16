@@ -1,0 +1,19 @@
+.login-main{
+  width: 100%;
+  position: relative;
+
+  .login-input-container{
+    width: 500px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: 100px auto;
+    height: 300px;
+
+   .login-btn, .login-input{
+      margin-top: 25px;
+    }
+  }
+}
