@@ -1,4 +1,5 @@
 html,body, h1,h2,h3,h4,h5,h6,p,ul,li,table,tr,td,th,img{margin:0; padding: 0}
+html, body{width: 100%; height: 100%}
 a{text-decoration: none}
 
 //清除浮动
@@ -25,6 +26,10 @@ a{text-decoration: none}
   margin: 0 auto;
 }
 
+#root{
+  height: 100%;
+}
+
 .icon-img{
   display: inline-block;
 }
@@ -38,8 +43,12 @@ a{text-decoration: none}
   }
 }
 
+.page{
+  width: 100%;
+  height: 100%;
+}
 .page-float-left{
-  width: 910px;
+  width: 950px;
   margin-right: 20px;
   padding: 20px;
   background: #fff;

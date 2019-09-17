@@ -25,10 +25,10 @@ export const addArticle = async (params) => {
 // pageSize  页数
 // keyword 关键词匹配
 // id  用户发表的文章
-export const addArticle = async (params) => {
+export const articleList = async (params) => {
   console.log('article params:', params)
   try{
-    let result = await POST('/addArticle',params);
+    let result = await GET('/articleList',params);
     if(result.code === 1){
       return result
     }else{

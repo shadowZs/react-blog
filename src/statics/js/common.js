@@ -12,22 +12,23 @@ export const setPageMainHeight = () => {
 
 // 检查是否登录
 export const checkLogin = () => {
-  let userInfo = getCookie('userInfo');
+  let userInfo = getCookie('blog_user');
   if(userInfo && JSON.parse(userInfo) && JSON.parse(userInfo).id){
     return true
   }else{
-    location.href = '/login'
+    window.location.href = '/login'
   }
 }
 
 
 // 获取用户信息
 export const getUserInfo = () => {
-  let userInfo = getCookie('userInfo')
+  let userInfo = getCookie('blog_user')
+  console.log(userInfo);
   if(userInfo){
     userInfo = JSON.parse(userInfo)
-    return userInfo.id
+    return userInfo
   }else{
-    location.href = '/login'
+    window.location.href = '/login'
   }
 }

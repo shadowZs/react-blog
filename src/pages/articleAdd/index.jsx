@@ -4,6 +4,8 @@ import './index.scss'
 
 import {addArticle} from "../../api/article";
 import {getCookie} from "../../util/cookie";
+import {getUserInfo} from '../../statics/js/common';
+
 import Header from '@components/header'
 import Editor from '@components/editor'
 import FloatRight from '@components/floatRight'
@@ -19,9 +21,20 @@ class ArticleAdd extends Component{
   }
 
   // 提交文章
-  submitArticle(){
+  async submitArticle(){
     let title = ReactDOM.findDOMNode(this.refs['title']).value;
     let content = this.refs.child.getContent();
+
+    let userId ='';
+    let userInfo = getUserInfo()
+    console.log('userInfo:', userInfo);
+    userId = userInfo.id;
+    let result = await addArticle({title, content, userId});
+    console.log('提交文章：', result)
+    // message.info(result.message)
+    if(result.code === 1){
+
+    }
   }
 
   render(){
@@ -31,7 +44,7 @@ class ArticleAdd extends Component{
         <div className="article-add-main">
           <div className="wrap clear">
 
-            <div className="article-add-left page-float-left">
+            <div className="article-add-left page-float-left fl">
               <div className="input-item clear">
                 <span className="input-title fl">标题：</span>
                 <Input placeholder="Basic usage "  ref='title' className='fl input-main'/>
@@ -44,7 +57,7 @@ class ArticleAdd extends Component{
               </div>
             </div>
 
-            <div className="article-add-right page-float-right">
+            <div className="article-add-right page-float-right fr">
               <FloatRight />
             </div>
 

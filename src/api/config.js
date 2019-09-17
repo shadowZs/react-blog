@@ -1,31 +1,27 @@
 import axios from 'axios'
 import qs from 'qs'
+import {getCookie} from "../util/cookie";
 
 const baseUrl = 'http://localhost:5000';
 axios.defaults.withCredentials=true;  // axios 请求带cookie
 
-import {getCookie} from "../util/cookie";
-
 // 上传图片接口
 export const uploadUrl = `${baseUrl}/upload`;
-
 
 axios.interceptors.request.use(config => {
   return config
 })
 
 axios.interceptors.response.use(data => {
-  if(data.code == 1 || data.code == 2 || data.code == 3 || data.code == 4){
-    return data
-  }
-
+  return data;
   // code 488重新登录
-  if(data.code == 488){
-    location.href = '/login'
-  }
+  // if(data.code == 488){
+  //   window.location.href = '/login'
+  // }
 
 })
 
+// GET
 export const GET = (url, params) => {
   return axios.get(`${baseUrl}${url}`, {params}).then(res => {
     return res.data
@@ -34,14 +30,17 @@ export const GET = (url, params) => {
   })
 }
 
+// POST
 export const POST = (url, params) => {
   return axios.post(`${baseUrl}${url}`, params).then(res => {
+    console.log('res:', res)
     return res.data
   }).catch(err => {
-    throw err
+    console.log(err)
   })
 }
 
+// POST FORM
 export const POSTFORM = (url, params) => {
   return axios({
     method: 'post',

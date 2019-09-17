@@ -5,7 +5,7 @@ export const getCookie = name => {
   return Cookie.get(name);
 };
 
-// 客设置cookie
+// 设置cookie
 export const setCookie = (name, value, option) => {
   if (typeof option === "number") {
     Cookie.set(name, value, { expires: option });

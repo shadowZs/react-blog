@@ -5,6 +5,7 @@ import Header from '@components/header';
 import Footer from '@components/footer';
 import {setPageMainHeight} from '../../statics/js/common'
 import {login} from '@api/login';
+import {setCookie} from "../../util/cookie";
 
 import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
 
@@ -26,7 +27,9 @@ class Login extends Component {
     let result = await login({mobile, password})
     message.info(result.message)
     if(result.code === 1){
-      this.props.history.push('/')
+      console.log('result:', result.data, JSON.stringify(result.data));
+      setCookie('blog_user', JSON.stringify(result.data), 7)
+      // window.location.href = '/'
     }
   }
 
@@ -55,4 +58,4 @@ class Login extends Component {
 
 // const WrappedNormalLoginForm = Form.create()(Login);
 // ReactDOM.render(<WrappedNormalLoginForm />, mountNode);
-export default  Form.create()(Login);;
+export default  Form.create()(Login);

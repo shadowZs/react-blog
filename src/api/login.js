@@ -1,9 +1,10 @@
 import {POST,GET} from './config.js'
 
-export const login = async (params) => {
+export const  login = async (params) => {
   console.log('login params:', params)
   try{
     let result = await POST('/login',params);
+    console.log('result:', result);
     if(result.code === 1){
       return result
     }else{

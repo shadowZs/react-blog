@@ -1,14 +1,31 @@
 import React, {Component} from 'react'
 import { List, Avatar } from 'antd';
+import {articleList} from '@api/article';
+
 import './index.scss'
 
-class CompnentList extends Component{
+class ComponentList extends Component{
   constructor(props){
     super(props)
 
     this.state = {
-      list: [{title: 111},{title: 222},{title: 333}],
+      list: [],
     }
+  }
+
+  componentDidMount(){
+    this.getArticleList();
+  }
+
+  getArticleList(){
+    articleList().then(res => {
+      console.log('文章列表:', res)
+      if(res.code === 1){
+        this.setState({
+          list: res.data
+        })
+      }
+    })
   }
 
   render(){
@@ -22,7 +39,7 @@ class CompnentList extends Component{
               <List.Item.Meta
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                 title={<a href="https://ant.design">{item.title}</a>}
-                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                description={item.content}
               />
             </List.Item>
           )}
@@ -33,4 +50,4 @@ class CompnentList extends Component{
 }
 
 
-export default CompnentList;
+export default ComponentList;
