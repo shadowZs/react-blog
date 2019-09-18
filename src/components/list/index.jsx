@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { List, Avatar } from 'antd';
 import {articleList} from '@api/article';
+import {formatHTMLToStr} from '../../statics/js/common'
 
 import './index.scss'
 
@@ -10,6 +11,11 @@ class ComponentList extends Component{
 
     this.state = {
       list: [],
+      params: {
+        pageNo: 1,
+        pageSize: 20,
+        type: ''      // 全部: ''; 热门:'1';
+      }
     }
   }
 
@@ -38,8 +44,8 @@ class ComponentList extends Component{
             <List.Item>
               <List.Item.Meta
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                title={<a href="https://ant.design">{item.title}</a>}
-                description={item.content}
+                title={<a href={`/articleDetail/${item.id}`}>{item.title}</a>}
+                description={formatHTMLToStr(item.content)}
               />
             </List.Item>
           )}

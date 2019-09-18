@@ -39,3 +39,23 @@ export const articleList = async (params) => {
   }
 
 }
+
+
+// 文章详情
+// id 文章id
+export const articleDetail = async (params) => {
+  console.log('article params:', params)
+  try{
+    let result = await GET('/articleDetail',params);
+    if(result.code === 1){
+      return result
+    }else{
+      throw('文章详情接口错误', result.message)
+    }
+  }catch(err){
+    throw('文章详情接口错误：', err)
+  }
+
+}
+
+

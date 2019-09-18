@@ -32,3 +32,15 @@ export const getUserInfo = () => {
     window.location.href = '/login'
   }
 }
+
+export const formatHTMLToStr = (html) => {
+    if(html){
+      let str = ''
+      str = html.replace(/(\n)/g ,'')
+      str = str.replace(/(\t)/g, '')
+      str = str.replace(/(\r)/g, '')
+      str = str.replace(/<\/?[^>]*>/g, '');
+      str = str.replace(/\s*/g, '')
+      return str
+    }
+}
