@@ -27,9 +27,8 @@ class Login extends Component {
     let result = await login({mobile, password})
     message.info(result.message)
     if(result.code === 1){
-      console.log('result:', result.data, JSON.stringify(result.data));
       setCookie('blog_user', JSON.stringify(result.data), 7)
-      // window.location.href = '/'
+      window.location.href = '/'
     }
   }
 

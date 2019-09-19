@@ -10,11 +10,16 @@ class List extends Component{
     this.state = {
       likes: 0,
       dislikes: 0,
-      action: null
+      action: null,
+      activeIndex: '0'
     }
   }
 
-
+  changeNav(index){
+    this.setState({
+      activeIndex: index
+    })
+  }
 
   render(){
     return (
@@ -22,11 +27,11 @@ class List extends Component{
         <Header />
         <div className="wrap">
           <div className="article-list-nav">
-            <span className="article-list-nav-item">全部</span>
-            <span className="article-list-nav-item">热门文章</span>
-            <span className="article-list-nav-item">我的文章</span>
+            <span className={`article-list-nav-item ${this.state.activeIndex == '0' ? 'active' : ''}`} onClick={this.changeNav.bind(this, '0')}>全部</span>
+            <span className={`article-list-nav-item ${this.state.activeIndex == '1' ? 'active' : ''}`} onClick={this.changeNav.bind(this, '1')}>热门文章</span>
+            <span className={`article-list-nav-item ${this.state.activeIndex == '2' ? 'active' : ''}`} onClick={this.changeNav.bind(this, '2')}>我的文章</span>
           </div>
-          <ArticleList ref='articleList' />
+          <ArticleList ref='articleList' activeIndex={this.state.activeIndex}/>
         </div>
 
       </div>

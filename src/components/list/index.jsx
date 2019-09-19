@@ -14,7 +14,7 @@ class ComponentList extends Component{
       params: {
         pageNo: 1,
         pageSize: 20,
-        type: ''      // 全部: ''; 热门:'1';
+        type: ''      // 全部: '0'; 热门:'1',我的文章'2'
       }
     }
   }
@@ -23,8 +23,22 @@ class ComponentList extends Component{
     this.getArticleList();
   }
 
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps, 'nextProps', nextProps.activeIndex)
+    if(nextProps){
+      this.setState({
+        params: {
+          type: nextProps.activeIndex,
+          pageNo: 1,
+          pageSize: 20
+        }
+
+      }, this.getArticleList)
+    }
+  }
+
   getArticleList(){
-    articleList().then(res => {
+    articleList(this.state.params).then(res => {
       console.log('文章列表:', res)
       if(res.code === 1){
         this.setState({
