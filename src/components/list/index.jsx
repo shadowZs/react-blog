@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import { List, Avatar } from 'antd';
+import {Link} from 'react-router-dom';
+import { List, Avatar, message } from 'antd';
 import {articleList} from '@api/article';
 import {formatHTMLToStr} from '../../statics/js/common'
 
@@ -14,7 +15,7 @@ class ComponentList extends Component{
       params: {
         pageNo: 1,
         pageSize: 20,
-        type: ''      // 全部: '0'; 热门:'1',我的文章'2'
+        type: '0'      // 全部: '0'; 热门:'1',我的文章'2'
       }
     }
   }
@@ -44,8 +45,15 @@ class ComponentList extends Component{
         this.setState({
           list: res.data
         })
+      }else{
+        message.info(res.message)
       }
     })
+  }
+
+  jumpLink(id){
+    console.log(id);
+    this.props.history.push(`/articleDetail/${id}`)
   }
 
   render(){
@@ -60,6 +68,7 @@ class ComponentList extends Component{
                 avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
                 title={<a href={`/articleDetail/${item.id}`}>{item.title}</a>}
                 description={formatHTMLToStr(item.content)}
+                onClick={this.jumpLink.bind(this, item.id)}
               />
             </List.Item>
           )}

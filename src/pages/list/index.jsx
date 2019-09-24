@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import { withRouter } from 'react-router'
 import { Comment, Icon, Tooltip, Avatar } from 'antd';
 import Header from '@components/header'
 import './index.scss'
 import ArticleList from '@components/list'
+
 
 class List extends Component{
   constructor(props){
