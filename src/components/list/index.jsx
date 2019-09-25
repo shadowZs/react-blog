@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom';
-import { List, Avatar, message } from 'antd';
+import { List, Avatar, message, Pagination } from 'antd';
 import {articleList} from '@api/article';
 import {formatHTMLToStr} from '../../statics/js/common'
 
@@ -52,14 +52,19 @@ class ComponentList extends Component{
   }
 
   jumpLink(id){
-    console.log(id);
     this.props.history.push(`/articleDetail/${id}`)
+  }
+
+  // 跳转页面
+  changePage(val){
+    console.log('跳转页面：', val);
   }
 
   render(){
     return(
       <div className='list-container'>
         <List
+          className='page-list-item'
           itemLayout="horizontal"
           dataSource={this.state.list}
           renderItem={item => (
@@ -73,6 +78,8 @@ class ComponentList extends Component{
             </List.Item>
           )}
         />
+
+        <Pagination className='list-pagination' defaultCurrent={this.state.params.pageNo} total={this.state.total} onChange={this.changePage.bind(this)} ></Pagination>
       </div>
     )
   }

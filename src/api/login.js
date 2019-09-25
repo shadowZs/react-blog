@@ -13,5 +13,18 @@ export const  login = async (params) => {
   }catch(err){
     throw('登录接口错误：', err)
   }
+}
 
+
+export const register = async (params) =>{
+  try{
+    let result = await POST('/register', params)
+    if(result){
+      return result
+    }else{
+      console.error('注册接口错误', result.message)
+    }
+  }catch(err){
+    throw('登录接口错误', err)
+  }
 }

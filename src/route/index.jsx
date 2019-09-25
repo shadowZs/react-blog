@@ -7,6 +7,7 @@ import Login from '@pages/login'
 import List from '@pages/list'
 import ArticleAdd from '@pages/articleAdd'
 import ArticleDetail from '@pages/articleDetail'
+import User from '@pages/user'
 
 class BaseRoute extends Component{
   render(){
@@ -19,6 +20,7 @@ class BaseRoute extends Component{
           <Route path='/list' component={List} />
           <Route path='/articleAdd' component={ArticleAdd} />
           <Route path='/articleDetail/:id' component={ArticleDetail} />
+          <Route path='/user' component={User} />
         </Switch>
       </BrowserRouter>
     )

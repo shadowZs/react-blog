@@ -1,0 +1,20 @@
+.navigator-list-container{
+  background: #f6f6f6;
+  padding: 10px;
+  line-height: 22px;
+  height: 42px;
+    .navigator-link-line{
+      padding: 0 10px;
+      color: #999;
+    }
+    a{
+      .navigator-link-name{
+        color:#80bd01;
+        &:hover{
+          text-decoration: underline;
+        }
+      };
+
+    }
+
+}

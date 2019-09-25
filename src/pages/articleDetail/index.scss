@@ -1,19 +1,29 @@
-.page-top{
-  padding: 10px;
+.page-main{
   background: #fff;
-  margin-top: 20px;
-  border-bottom: 1px solid #f6f6f6;
-  .title{
-    color: #333;
-    font-size: 22px;
-    font-weight: bold;
-    line-height: 28px;
-    height: 28px;
+  .page-top{
+    padding: 10px;
+    margin-top: 20px;
+    border-bottom: 1px solid #f6f6f6;
+    .title{
+      color: #333;
+      font-size: 22px;
+      font-weight: bold;
+      line-height: 28px;
+      height: 28px;
+    }
+    .des{
+      color: #666;
+      font-size: 14px;
+      line-height: 20px;
+      height: 20px;
+      margin-top: 10px;
+    }
   }
-  .des{
-    color: #666;
-    font-size: 14px;
-    line-height: 20px;
-    height: 20px;
+  .article-content{
+    padding: 20px 10px 20px 10px;
+    line-height: 30px;
+    min-height: 500px;
   }
+
 }
+

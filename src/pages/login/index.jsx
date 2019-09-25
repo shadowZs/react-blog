@@ -28,7 +28,7 @@ class Login extends Component {
     message.info(result.message)
     if(result.code === 1){
       setCookie('blog_user', JSON.stringify(result.data), 7)
-      window.location.href = '/'
+      this.props.history.push('/')
     }
   }
 

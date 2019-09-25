@@ -34,3 +34,9 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
   width: 24px;
   height: 24px;
 }
+.icon-user {
+  background-image: url(../sprite/sprite.png);
+  background-position: 0px -68px;
+  width: 32px;
+  height: 32px;
+}

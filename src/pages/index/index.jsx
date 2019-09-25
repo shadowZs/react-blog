@@ -15,7 +15,7 @@ class Index extends Component{
           <div className="main-page ">
             <div className="wrap clear">
               <div className="main-page-left fl">
-                <List />
+                <List history={this.props.history}/>
               </div>
               <div className="main-page-right fl">
                 <FloatRight />

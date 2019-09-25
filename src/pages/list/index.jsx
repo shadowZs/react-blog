@@ -33,7 +33,7 @@ class List extends Component{
             <span className={`article-list-nav-item ${this.state.activeIndex == '1' ? 'active' : ''}`} onClick={this.changeNav.bind(this, '1')}>热门文章</span>
             <span className={`article-list-nav-item ${this.state.activeIndex == '2' ? 'active' : ''}`} onClick={this.changeNav.bind(this, '2')}>我的文章</span>
           </div>
-          <ArticleList ref='articleList' activeIndex={this.state.activeIndex}/>
+          <ArticleList ref='articleList' activeIndex={this.state.activeIndex} history={this.props.history}/>
         </div>
 
       </div>

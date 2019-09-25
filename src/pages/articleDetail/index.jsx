@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Header from '@components/header'
 import {articleDetail} from '@api/article';
+import {formatDate} from "../../statics/js/common";
 
 
 import './index.scss'
@@ -49,7 +50,7 @@ class ArticleDetail extends Component{
               <div className="title">{this.state.message.title}</div>
               <div className="des">
                 <span>作者：{this.state.message.author}</span>
-                <span>发布时间：{this.state.message.create_time}</span>
+                <span className='ml-10'>发布时间：{formatDate(new Date(this.state.message.create_time), 'yyyy-MM-dd')}</span>
               </div>
 
             </div>
