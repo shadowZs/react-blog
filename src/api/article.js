@@ -8,7 +8,7 @@ export const addArticle = async (params) => {
   console.log('login params:', params)
   try{
     let result = await POST('/addArticle',params);
-    if(result.code === 1){
+    if(result){
       return result
     }else{
       throw('提交文章接口错误', result.message)
@@ -29,7 +29,10 @@ export const articleList = async (params) => {
   console.log('article params:', params)
   try{
     let result = await GET('/articleList',params);
-    return result
+    if(result){
+      return result
+    }
+
   }catch(err){
     throw('提交文章接口错误：', err)
   }
@@ -51,3 +54,14 @@ export const articleDetail = async (params) => {
 }
 
 
+// 文章分类
+export const articleTypes = async (params) =>{
+  try{
+    let result = await GET('/articleTypes', params);
+    if(result){
+      return result
+    }
+  }catch(err){
+    throw('文章分类接口错误：', err);
+  }
+}

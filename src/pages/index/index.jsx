@@ -13,7 +13,7 @@ class Index extends Component{
       <div className='index-page page'>
           <Header />
           <div className="main-page ">
-            <div className="wrap clear">
+            <div className="wrap clear ">
               <div className="main-page-left fl">
                 <List history={this.props.history}/>
               </div>

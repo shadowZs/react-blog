@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {getCookie} from "../../util/cookie";
+import {getCookie, removeCookie} from "../../util/cookie";
 import './index.scss';
 
 class Header extends Component{
@@ -30,6 +30,12 @@ class Header extends Component{
 
   }
 
+  // 登出
+  loginOut(){
+    removeCookie('blog_user');
+    window.location.href = '/'
+  }
+
   // 生成用户登录模板
   renderUserInfo(){
     if(this.state.userInfo && (this.state.userInfo.mobile || this.state.userInfo.nick_name)){
@@ -37,6 +43,7 @@ class Header extends Component{
         <div className="header-user-userInfo">
           <i className='icon-user icon-img fl'></i>
           <span className='fl'>{this.state.userInfo.nick_name || this.state.userInfo.mobile}</span>
+          <span className='login-out' onClick={this.loginOut.bind(this)}>登出</span>
         </div>
       )
     }else{

@@ -5,7 +5,7 @@ export const  login = async (params) => {
   try{
     let result = await POST('/login',params);
     console.log('result:', result);
-    if(result.code === 1){
+    if(result){
       return result
     }else{
       throw('登录接口错误', result.message)

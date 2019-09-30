@@ -24,7 +24,18 @@ class Login extends Component {
   async submitLogin(){
     let mobile = ReactDOM.findDOMNode(this.refs.mobile).value;
     let password = ReactDOM.findDOMNode(this.refs.password).value;
+    if(!mobile){
+      message.info('请输入登录账号');
+      return
+    }
+
+    if(!password){
+      message.info('请输入登录密码');
+    }
+
     let result = await login({mobile, password})
+
+
     message.info(result.message)
     if(result.code === 1){
       setCookie('blog_user', JSON.stringify(result.data), 7)

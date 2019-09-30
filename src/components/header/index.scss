@@ -34,4 +34,12 @@
       }
     }
   }
+
+  .login-out{
+    margin-left: 20px;
+    font-size: 12px;
+    &:hover{
+      cursor:pointer;
+    }
+  }
 }
