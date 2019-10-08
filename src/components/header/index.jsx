@@ -68,9 +68,9 @@ class Header extends Component{
           </div>
 
           <div className="header-list fr">
-            <Link to='/index' className="header-li">首页</Link>
+            <Link to='/' className="header-li">首页</Link>
             <Link to='/articleAdd' className='header-li'>发表文章</Link>
-            <Link to='/userInfo' className='header-li'>个人中心</Link>
+            <Link to='/user' className='header-li'>个人中心</Link>
           </div>
 
         </div>

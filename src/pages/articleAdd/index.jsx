@@ -9,7 +9,7 @@ import {getUserInfo} from '../../statics/js/common';
 import Header from '@components/header'
 import Editor from '@components/editor'
 import FloatRight from '@components/floatRight'
-import {Input, Button, Tag} from 'antd'
+import {Input, Button, Tag, message} from 'antd'
 
 class ArticleAdd extends Component{
   constructor(props) {
@@ -66,11 +66,9 @@ class ArticleAdd extends Component{
     userId = userInfo.id;
     let result = await addArticle({title, content, userId});
     console.log('提交文章：', result)
-    // message.info(result.message)
+    message.info(result.message)
     if(result.code === 1){
-        this.setState({
-
-        })
+       this.props.history.push('/')
     }
   }
 
@@ -84,7 +82,7 @@ class ArticleAdd extends Component{
             <div className="article-add-left page-float-left fl">
               <div className="input-item clear">
                 <span className="input-title fl">标题：</span>
-
+                <Input className='fl input-item-content' ref='title' placeholder='请输入文章标题'/>
               </div>
 
               <div className="article-types">

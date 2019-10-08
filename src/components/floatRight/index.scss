@@ -1,0 +1,18 @@
+.float-list-container{
+  .float-list-title{
+    line-height: 30px;
+  }
+  padding: 0 6px;
+  .float-li{
+    border-bottom: 1px solid #efefef;
+    padding: 4px 0;
+    .title{
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .more-info{
+      font-size: 12px;
+    }
+  }
+}

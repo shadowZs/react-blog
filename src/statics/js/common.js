@@ -52,12 +52,7 @@ export const formatHTMLToStr = (html) => {
 * fmt 格式 yyyy-MM-dd hh:mm
 * */
 export const formatDate = (date, fmt) =>{
-  if(date && typeof date === 'string'){
-    date = date.replace(/-/g, '/');
-    date = new Date(date);
-  }
-
-  let o = {
+  var o = {
     "M+": date.getMonth() + 1,                 //月份
     "d+": date.getDate(),                    //日
     "h+": date.getHours(),                   //小时
@@ -68,10 +63,11 @@ export const formatDate = (date, fmt) =>{
   };
   if(/(y+)/.test(fmt))
     fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
-  for(let k in o)
+  for(var k in o)
     if(new RegExp("(" + k + ")").test(fmt))
-      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+      fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
   return fmt;
+
 }
 
 

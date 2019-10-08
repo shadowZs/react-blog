@@ -25,6 +25,8 @@ export const addArticle = async (params) => {
 // pageSize  页数
 // keyword 关键词匹配
 // id  用户发表的文章
+// type: 0 默认排序 1热门排序
+
 export const articleList = async (params) => {
   console.log('article params:', params)
   try{
@@ -36,9 +38,20 @@ export const articleList = async (params) => {
   }catch(err){
     throw('提交文章接口错误：', err)
   }
-
 }
 
+
+// 我的文章列表
+export const articleListByUser = async(params) => {
+  try{
+    let result = await GET('/articleListByUser', params);
+    if(result){
+      return result
+    }
+  }catch(err){
+    throw('我的文章列表:', err);
+  }
+}
 
 // 文章详情
 // id 文章id

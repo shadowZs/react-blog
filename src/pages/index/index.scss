@@ -3,7 +3,8 @@
 .main-page{
   min-height: 500px;
   background: #efefef;
-  margin-top: 20px;
+  padding-top: 20px;
+  height: calc(100% - 60px);
   .main-page-left{
     width: 950px;
     margin-right: 20px;

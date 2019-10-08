@@ -3,6 +3,16 @@
   padding-top: 20px;
   min-height: 500px;
   height: calc(100% - 60px);
+  .input-item{
+    margin-bottom: 15px;
+  }
+  .input-title{
+    width: 80px;
+    display: inline-block;
+  }
+  .input-item-content{
+    width: 60%;
+  }
   .input-main{
     width: 500px;
   }
